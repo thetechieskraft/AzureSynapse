@@ -1,19 +1,22 @@
 DROP EXTERNAL TABLE ActivityLog;
 DROP EXTERNAL DATA SOURCE srcActivityLog;
+-- Master Key is required to encrypet the secret at database Level
 
-CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'P@ssword@123'
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = '' -- Fill the value of PASSWORD
 
+-- Fill the value of SECRET from Storage Account Secret Key
 CREATE DATABASE SCOPED CREDENTIAL sasToken
 WITH IDENTITY ='SHARED ACCESS SIGNATURE',
-SECRET='sv=2022-11-02&ss=b&srt=sco&sp=rl&se=2024-06-12T23:18:38Z&st=2024-06-12T15:18:38Z&spr=https&sig=S4CDxjxRkRIUBYN0VEMVgkMUB3%2B7Ebm6THJYTX6MasE%3D'
+SECRET=''
 
 
 CREATE EXTERNAL DATA SOURCE srcActivityLog
 WITH 
 (
-    LOCATION='https://datalake50000.blob.core.windows.net/rawdata',
+    LOCATION='https://shivdatalake2025.blob.core.windows.net/data',
     CREDENTIAL=sasToken
 )
+
 
 CREATE EXTERNAL FILE FORMAT parquetFileFormat WITH
 (
@@ -41,4 +44,3 @@ WITH (
 )
 
 SELECT * FROM ActivityLog;
-

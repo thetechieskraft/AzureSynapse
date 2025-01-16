@@ -1,9 +1,11 @@
+-- Azure Synapse serverless DB
 CREATE DATABASE [appdb]
 
+--- Assign the 'Blob data reader' role to the Azure account because we are not passing other storage account access mechanisms like Access key etc.
 CREATE EXTERNAL DATA SOURCE srcActivityLog
 WITH 
 (
-    LOCATION='https://datalake50000.blob.core.windows.net/data'
+    LOCATION='https://shivdatalake2025.blob.core.windows.net/data'
 )
 
 CREATE EXTERNAL FILE FORMAT delimitedTxtFileFormat WITH
