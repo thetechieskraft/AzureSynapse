@@ -2,10 +2,11 @@ DROP EXTERNAL TABLE ActivityLog;
 DROP EXTERNAL DATA SOURCE srcActivityLog;
 
 
+-- sasToken credential has already created in previous step.so we do not need to create it again.
 CREATE EXTERNAL DATA SOURCE srcActivityLog
 WITH 
 (
-    LOCATION='https://datalake50000.blob.core.windows.net/data',
+    LOCATION='https://shivdatalake2025.blob.core.windows.net/data',
     CREDENTIAL=sasToken
 )
 
