@@ -1,6 +1,6 @@
 SELECT * 
 FROM OPENROWSET(
-    BULK 'https://datalake50000.blob.core.windows.net/data/ActivityLog01.json',
+    BULK 'https://shivdatalake2025.blob.core.windows.net/data/ActivityLog01.json',
     FORMAT = 'csv',
     FIELDTERMINATOR ='0x0b',
     FIELDQUOTE = '0x0b',
@@ -24,7 +24,7 @@ SELECT JSON_VALUE(jsonContent,'$.Correlationid') As Correlationid,
    JSON_VALUE(jsonContent,'$.Resourcegroup') AS Resourcegroup,
    JSON_VALUE(jsonContent,'$.Resource') AS Resource
 FROM OPENROWSET(
-    BULK 'https://datalake50000.blob.core.windows.net/data/ActivityLog01.json',
+    BULK 'https://shivdatalake2025.blob.core.windows.net/data/ActivityLog01.json',
     FORMAT = 'csv',
     FIELDTERMINATOR ='0x0b',
     FIELDQUOTE = '0x0b',

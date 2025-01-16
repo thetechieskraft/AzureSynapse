@@ -1,15 +1,18 @@
-CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'P@ssword@123'
+-- Create SQL Dedicated Pool
+
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = ''
 
 CREATE DATABASE SCOPED CREDENTIAL sasToken
 WITH IDENTITY ='SHARED ACCESS SIGNATURE',
-SECRET='sv=2022-11-02&ss=b&srt=sco&sp=rl&se=2024-06-13T11:24:49Z&st=2024-06-13T03:24:49Z&spr=https&sig=PL01eMQrJ1hUwlMFz%2FC9weQVD6WrTQPH9UuTOaQH4iE%3D'
+SECRET=''
 
 
+-- In Dedicated SQL Pool, Only HADOOP type support to get data from EXTERNAL source
 
 CREATE EXTERNAL DATA SOURCE srcActivityLog
 WITH 
 (
-    LOCATION='abfss://data@datalake50000.blob.core.windows.net',
+    LOCATION='abfss://data@shivdatalake2025.blob.core.windows.net',
     TYPE = HADOOP,
      CREDENTIAL=sasToken
 )
