@@ -4,7 +4,7 @@ DROP DATABASE SCOPED CREDENTIAL sasToken;
 
 CREATE DATABASE SCOPED CREDENTIAL sasToken
 WITH IDENTITY ='SHARED ACCESS SIGNATURE',
-SECRET='sv=2022-11-02&ss=b&srt=sco&sp=rl&se=2024-06-19T22:01:42Z&st=2024-06-19T14:01:42Z&spr=https&sig=%2FDd2uuN3c1ICEIMpAgjOTn6f%2BNGfgJD9agEFQtmC0cI%3D'
+SECRET=''
 
 -- Make sure that we use the dfs.core.windows.net
 -- This will make use of the directory feature of data lake
@@ -12,7 +12,7 @@ SECRET='sv=2022-11-02&ss=b&srt=sco&sp=rl&se=2024-06-19T22:01:42Z&st=2024-06-19T1
 CREATE EXTERNAL DATA SOURCE srcActivityLog
 WITH 
 (
-    LOCATION='abfss://data@datalake4000050.dfs.core.windows.net',
+    LOCATION='abfss://data@shivdatalake2025.dfs.core.windows.net',
     TYPE = HADOOP,
      CREDENTIAL=sasToken
 )

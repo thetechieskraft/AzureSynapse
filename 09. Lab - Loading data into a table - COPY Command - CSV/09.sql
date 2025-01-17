@@ -19,13 +19,13 @@ WITH(
 )
 
 COPY INTO PoolActivityLog
-FROM 'https://datalake50000.blob.core.windows.net/data/ActivityLog01.csv'
+FROM 'https://shivdatalake2025.blob.core.windows.net/data/ActivityLog01.csv'
 WITH(
     FILE_TYPE='CSV',
     FIRSTROW=2,
     CREDENTIAL=
     (
         IDENTITY='Shared Access Signature',
-        SECRET='sv=2022-11-02&ss=b&srt=sco&sp=rl&se=2024-06-13T11:24:49Z&st=2024-06-13T03:24:49Z&spr=https&sig=PL01eMQrJ1hUwlMFz%2FC9weQVD6WrTQPH9UuTOaQH4iE%3D'
+        SECRET='sv=2022-11-02&ss=b&srt=sco&sp=rlx&se=2025-01-18T13:21:57Z&st=2025-01-17T05:21:57Z&spr=https&sig=NAcss2DZrsgHcywiJ2MSEJU1%2BSXX2D6%2BHY3N%2BfNupw8%3D'
     )
 );
