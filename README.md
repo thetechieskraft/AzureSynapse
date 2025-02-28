@@ -14,24 +14,3 @@
 | 8.   | Dedicated Pool- Load data using Polybase into Externaltable|
 | 9.   | Dedicated Pool- Load CSV data-Copy Command into Externaltable|
 | 10.  | Dedicated Pool- Load Parquet data-Copy Command into Externaltable|
-
-
-graph TD
-    A[Internet] --> B{Cloud Load Balancing (External HTTP(S) Load Balancer)};
-    B --> C[Cloud Armor (WAF)]
-    C --> D[Apigee API Management];
-    D --> E[Cloud Functions];
-    E --> F[Cloud SQL for SQL Server];
-    G[Cloud Identity] -- Authentication --> D;
-    G -- Authentication --> E;
-    H[Cloud KMS & Secret Manager] -- Secrets --> D;
-    H -- Secrets --> E;
-    I[Cloud Monitoring & Cloud Logging] -- Monitor/Log --> B;
-    I -- Monitor/Log --> C;
-    I -- Monitor/Log --> D;
-    I -- Monitor/Log --> E;
-    I -- Monitor/Log --> F;
-
-    subgraph "GCP Services"
-    B;C;D;E;F;G;H;I;
-    end
